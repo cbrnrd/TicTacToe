@@ -21,12 +21,16 @@ public class TicTac {
             JButton b7 = new JButton();
             JButton b8 = new JButton();
             JButton b9 = new JButton();
-            JButton reset = new JButton("Reset");
+            JButton reset = new JButton("Reset board");
+            //JButton[] buttons = {b1, b2, b3, b4, b5, b6, b7, b8, b9, reset};
+
+            reset.setSize(100, 100);
 
             // set the action listener for each button
             b1.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+                    b1.setFont(new Font("Arial", Font.BOLD, 40));
                     count++;
                     if(count % 2 != 0) {
                         b1.setText("X");
@@ -40,6 +44,7 @@ public class TicTac {
             b2.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+                    b2.setFont(new Font("Arial", Font.BOLD, 40));
                     count++;
                     if(count % 2 != 0) {
                         b2.setText("X");
@@ -53,6 +58,7 @@ public class TicTac {
             b3.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+                    b3.setFont(new Font("Arial", Font.BOLD, 40));
                     count++;
                     if(count % 2 != 0) {
                         b3.setText("X");
@@ -66,6 +72,7 @@ public class TicTac {
             b4.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+                    b4.setFont(new Font("Arial", Font.BOLD, 40));
                     count++;
                     if(count % 2 != 0) {
                         b4.setText("X");
@@ -79,6 +86,7 @@ public class TicTac {
             b5.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+                    b5.setFont(new Font("Arial", Font.BOLD, 40));
                     count++;
                     if(count % 2 != 0) {
                         b5.setText("X");
@@ -92,6 +100,7 @@ public class TicTac {
             b6.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+                    b6.setFont(new Font("Arial", Font.BOLD, 40));
                     count++;
                     if(count % 2 != 0) {
                         b6.setText("X");
@@ -105,6 +114,7 @@ public class TicTac {
             b7.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+                    b7.setFont(new Font("Arial", Font.BOLD, 40));
                     count++;
                     if(count % 2 != 0) {
                         b7.setText("X");
@@ -118,6 +128,7 @@ public class TicTac {
             b8.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+                    b8.setFont(new Font("Arial", Font.BOLD, 40));
                     count++;
                     if(count % 2 != 0) {
                         b8.setText("X");
@@ -129,8 +140,10 @@ public class TicTac {
             });
 
             b9.addActionListener(new ActionListener() {
+
                 @Override
                 public void actionPerformed(ActionEvent e) {
+                    b9.setFont(new Font("Arial", Font.BOLD, 40));
                     count++;
                     if(count % 2 != 0) {
                         b9.setText("X");
@@ -144,15 +157,16 @@ public class TicTac {
             reset.addActionListener(new ActionListener() {
                @Override
                 public void actionPerformed(ActionEvent e) {
-                    resetButton(b1);
-                    resetButton(b2);
-                    resetButton(b3);
-                    resetButton(b4);
-                    resetButton(b5);
-                    resetButton(b6);
-                    resetButton(b7);
-                    resetButton(b8);
-                    resetButton(b9);
+                   resetButton(b1);
+                   resetButton(b2);
+                   resetButton(b3);
+                   resetButton(b4);
+                   resetButton(b5);
+                   resetButton(b6);
+                   resetButton(b7);
+                   resetButton(b8);
+                   resetButton(b9);
+                   count = 0; // we do this to be sure that X's always start after reset
                 }
             });
             f.add(b1);
@@ -169,7 +183,7 @@ public class TicTac {
 
 
             f.setLayout(new GridLayout(4, 3));
-            //setting grid layout of 3 rows and 3 columns
+            //setting grid layout of 4 rows and 3 columns
 
             f.setSize(500, 500);
             f.setVisible(true);
@@ -180,6 +194,7 @@ public class TicTac {
             button.setText("");
             button.setEnabled(true);
         }
+
 
         public static void main(String[] args) {
             new TicTac();
