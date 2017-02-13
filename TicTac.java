@@ -1,6 +1,8 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.*;
+import java.util.List;
 import javax.swing.*;
 /**
  * Created by Carter on 2/10/17.
@@ -8,7 +10,9 @@ import javax.swing.*;
 public class TicTac {
     JFrame f;
     int count = 0;
+    boolean won = false;
 
+        // constructor for displaying the GUI
         TicTac() {
 
             f = new JFrame("Tic Tac Toe!");
@@ -22,136 +26,117 @@ public class TicTac {
             JButton b8 = new JButton();
             JButton b9 = new JButton();
             JButton reset = new JButton("Reset board");
-            //JButton[] buttons = {b1, b2, b3, b4, b5, b6, b7, b8, b9, reset};
-
-            reset.setSize(100, 100);
+            JButton[] buttons = {b1, b2, b3, b4, b5, b6, b7, b8, b9, reset};
 
             // set the action listener for each button
-            b1.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    b1.setFont(new Font("Arial", Font.BOLD, 40));
-                    count++;
-                    if(count % 2 != 0) {
-                        b1.setText("X");
-                    } else {
-                        b1.setText("O");
-                    }
-                    b1.setEnabled(false);
+            // gotta love lambdas amirite?
+            b1.addActionListener(e -> {
+                b1.setFont(new Font("Arial", Font.BOLD, 40));
+                count++;
+                if(count % 2 != 0) {
+                    b1.setText("X");
+                } else {
+                    b1.setText("O");
                 }
+                b1.setEnabled(false);
+                checkWin(buttons);
             });
 
-            b2.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    b2.setFont(new Font("Arial", Font.BOLD, 40));
-                    count++;
-                    if(count % 2 != 0) {
-                        b2.setText("X");
-                    } else {
-                        b2.setText("O");
-                    }
-                    b2.setEnabled(false);
+            b2.addActionListener(e -> {
+                b2.setFont(new Font("Arial", Font.BOLD, 40));
+                count++;
+                if(count % 2 != 0) {
+                    b2.setText("X");
+                } else {
+                    b2.setText("O");
                 }
+                b2.setEnabled(false);
+                checkWin(buttons);
             });
 
-            b3.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    b3.setFont(new Font("Arial", Font.BOLD, 40));
-                    count++;
-                    if(count % 2 != 0) {
-                        b3.setText("X");
-                    } else {
-                        b3.setText("O");
-                    }
-                    b3.setEnabled(false);
+            b3.addActionListener(e -> {
+                b3.setFont(new Font("Arial", Font.BOLD, 40));
+                count++;
+                if(count % 2 != 0) {
+                    b3.setText("X");
+                } else {
+                    b3.setText("O");
                 }
+                b3.setEnabled(false);
+                checkWin(buttons);
             });
 
-            b4.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    b4.setFont(new Font("Arial", Font.BOLD, 40));
-                    count++;
-                    if(count % 2 != 0) {
-                        b4.setText("X");
-                    } else {
-                        b4.setText("O");
-                    }
-                    b4.setEnabled(false);
+            b4.addActionListener(e -> {
+
+                b4.setFont(new Font("Arial", Font.BOLD, 40));
+                count++;
+                if(count % 2 != 0) {
+                    b4.setText("X");
+                } else {
+                    b4.setText("O");
                 }
+                b4.setEnabled(false);
+                checkWin(buttons);
             });
 
-            b5.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    b5.setFont(new Font("Arial", Font.BOLD, 40));
-                    count++;
-                    if(count % 2 != 0) {
-                        b5.setText("X");
-                    } else {
-                        b5.setText("O");
-                    }
-                    b5.setEnabled(false);
+            b5.addActionListener(e -> {
+                b5.setFont(new Font("Arial", Font.BOLD, 40));
+                count++;
+                if(count % 2 != 0) {
+                    b5.setText("X");
+                } else {
+                    b5.setText("O");
                 }
+                b5.setEnabled(false);
+                checkWin(buttons);
             });
 
-            b6.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    b6.setFont(new Font("Arial", Font.BOLD, 40));
-                    count++;
-                    if(count % 2 != 0) {
-                        b6.setText("X");
-                    } else {
-                        b6.setText("O");
-                    }
-                    b6.setEnabled(false);
+            b6.addActionListener(e -> {
+                b6.setFont(new Font("Arial", Font.BOLD, 40));
+                count++;
+                if(count % 2 != 0) {
+                    b6.setText("X");
+                } else {
+                    b6.setText("O");
                 }
+                b6.setEnabled(false);
+                checkWin(buttons);
             });
 
-            b7.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    b7.setFont(new Font("Arial", Font.BOLD, 40));
-                    count++;
-                    if(count % 2 != 0) {
-                        b7.setText("X");
-                    } else {
-                        b7.setText("O");
-                    }
-                    b7.setEnabled(false);
+            b7.addActionListener(e -> {
+                b7.setFont(new Font("Arial", Font.BOLD, 40));
+                count++;
+                if(count % 2 != 0) {
+                    b7.setText("X");
+                } else {
+                    b7.setText("O");
                 }
+                b7.setEnabled(false);
+                checkWin(buttons);
             });
 
-            b8.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    b8.setFont(new Font("Arial", Font.BOLD, 40));
-                    count++;
-                    if(count % 2 != 0) {
-                        b8.setText("X");
-                    } else {
-                        b8.setText("O");
-                    }
-                    b8.setEnabled(false);
+            b8.addActionListener(e -> {
+                b8.setFont(new Font("Arial", Font.BOLD, 40));
+                count++;
+                if(count % 2 != 0) {
+                    b8.setText("X");
+                } else {
+                    b8.setText("O");
                 }
+                b8.setEnabled(false);
+                checkWin(buttons);
             });
 
-            b9.addActionListener(new ActionListener() {
-
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    b9.setFont(new Font("Arial", Font.BOLD, 40));
-                    count++;
-                    if(count % 2 != 0) {
-                        b9.setText("X");
-                    } else {
-                        b9.setText("O");
-                    }
-                    b9.setEnabled(false);
+            b9.addActionListener(e -> {
+                b9.setFont(new Font("Arial", Font.BOLD, 40));
+                count++;
+                if(count % 2 != 0) {
+                    b9.setText("X");
+                } else {
+                    b9.setText("O");
                 }
+                b9.setEnabled(false);
+                checkWin(buttons);
             });
 
             reset.addActionListener(new ActionListener() {
@@ -194,6 +179,122 @@ public class TicTac {
             button.setText("");
             button.setEnabled(true);
         }
+
+        public boolean checkWin(JButton[] buttons){
+
+            for(int i = 0; i < buttons.length; i++){
+
+                //check the Xs
+                if(buttons[i].getText().equals("X")
+                        && buttons[i + 1].getText().equals("X")
+                        && buttons[i + 2].getText().equals("X")){
+                    displayXWin();
+                    resetBoard(buttons);
+                } else if(buttons[3].getText().equals("X")
+                        && buttons[4].getText().equals("X")
+                        && buttons[5].getText().equals("X")){
+                    displayXWin();
+                    resetBoard(buttons);
+                } else if(buttons[6].getText().equals("X")
+                        && buttons[7].getText().equals("X")
+                        && buttons[8].getText().equals("X")){
+                    displayXWin();
+                    resetBoard(buttons);
+                } else if(buttons[1].getText().equals("X")
+                        && buttons[4].getText().equals("X")
+                        && buttons[7].getText().equals("X")){
+                    displayXWin();
+                    resetBoard(buttons);
+                } else if(buttons[2].getText().equals("X")
+                        && buttons[5].getText().equals("X")
+                        && buttons[8].getText().equals("X")){
+                    displayXWin();
+                    resetBoard(buttons);
+                } else if(buttons[0].getText().equals("X")
+                        && buttons[4].getText().equals("X")
+                        && buttons[8].getText().equals("X")){
+                    displayXWin();
+                    resetBoard(buttons);
+                } else if(buttons[2].getText().equals("X")
+                        && buttons[4].getText().equals("X")
+                        && buttons[6].getText().equals("X")){
+                    displayXWin();
+                    resetBoard(buttons);
+                } else if(buttons[0].getText().equals("X")
+                        && buttons[3].getText().equals("X")
+                        && buttons[6].getText().equals("X")) {
+                    displayXWin();
+                    resetBoard(buttons);
+                } else;
+
+                // Now check the Os
+                if(buttons[i].getText().equals("O")
+                        && buttons[i + 1].getText().equals("O")
+                        && buttons[i + 2].getText().equals("O")){
+                    displayZeroWin();
+                    resetBoard(buttons);
+                    return true;
+                } else if(buttons[3].getText().equals("O")
+                        && buttons[4].getText().equals("O")
+                        && buttons[5].getText().equals("O")){
+                    displayZeroWin();
+                    resetBoard(buttons);
+                } else if(buttons[6].getText().equals("O")
+                        && buttons[7].getText().equals("O")
+                        && buttons[8].getText().equals("O")){
+                    displayZeroWin();
+                    resetBoard(buttons);
+                } else if(buttons[1].getText().equals("O")
+                        && buttons[4].getText().equals("O")
+                        && buttons[7].getText().equals("O")){
+                    displayZeroWin();
+                    resetBoard(buttons);
+                } else if(buttons[2].getText().equals("O")
+                        && buttons[5].getText().equals("O")
+                        && buttons[8].getText().equals("O")){
+                    displayZeroWin();
+                    resetBoard(buttons);
+                } else if(buttons[0].getText().equals("O")
+                        && buttons[4].getText().equals("O")
+                        && buttons[8].getText().equals("O")){
+                    displayZeroWin();
+                    resetBoard(buttons);
+                } else if(buttons[2].getText().equals("O")
+                        && buttons[4].getText().equals("O")
+                        && buttons[6].getText().equals("O")){
+                    displayZeroWin();
+                    resetBoard(buttons);
+                } else;
+            }
+            //fail condition if none of those are true
+            return false;
+        }
+
+    public void resetBoard(JButton[] buttons){
+        for(int i = 0; i < buttons.length; i++){
+            if(buttons[i].getText().equals("Reset board")){
+                count = 0;
+                break;
+            } else {
+                buttons[i].setText("");
+                buttons[i].setEnabled(true);
+                count = 0;
+            }
+        }
+    }
+
+    public void displayZeroWin(){
+        JOptionPane.showMessageDialog(f, "O's win!", "Winner!", JOptionPane.PLAIN_MESSAGE);
+
+    }
+
+    public void displayXWin(){
+        JOptionPane.showMessageDialog(f, "X's win!", "Winner!", JOptionPane.PLAIN_MESSAGE);
+    }
+
+    public void displayDraw(){
+        JOptionPane.showMessageDialog(f, "Draw", "Nobody wins :(", JOptionPane.PLAIN_MESSAGE);
+    }
 
 
         public static void main(String[] args) {
